@@ -128,7 +128,7 @@ aside {
   padding: 0;
   color: rgb(101, 104, 107);
 }
-.nav__ul li {
+nav ul li {
   list-style-type: none;
   padding: 1rem 0;
 }
@@ -137,7 +137,7 @@ aside {
   -webkit-text-fill-color: unset;
   cursor: text;
 }
-.nav__ul li a {
+nav ul li a {
   text-decoration: none;
   color: rgb(101, 104, 107);
   background-image: linear-gradient(
@@ -152,7 +152,7 @@ aside {
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease-in-out;
 }
-.nav__ul li a:before {
+nav ul li a:before {
   content: "";
   background: rgb(84, 179, 214);
   display: block;
@@ -162,7 +162,7 @@ aside {
   width: 0;
   height: 3px;
 }
-.nav__ul li a:hover {
+nav ul li a:hover {
   background-position: 0;
 }
 
