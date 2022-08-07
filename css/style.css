@@ -1,12 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
-
 * {
   box-sizing: border-box;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .container {
-  border: solid 1px black;
+  height: 100vh;
 }
 .header--dark {
   background-color: rgb(51, 57, 64);
@@ -19,7 +16,6 @@
 .header__left {
   display: flex;
   align-items: center;
-  column-gap: 10vw;
 }
 
 .header__title {
@@ -29,16 +25,17 @@
 }
 
 .header__hamburger {
-  width: 50px;
+  margin: 0 10vw;
+  width: 40px;
   display: inline;
-  padding: 10px;
+  padding: 8px;
   cursor: pointer;
 }
 
 .header__hamburger span {
   display: block;
   height: 4px;
-  background: rgb(236, 236, 236);
+  background: rgb(185, 185, 185);
   margin: 0 0 5px 0;
   border-radius: 2px;
 }
@@ -48,48 +45,75 @@
 }
 
 .header__search {
-  display: flex;
+  display: inline-flex;
   height: 5vh;
+  align-items: center;
+}
+
+.header__user {
+  margin-left: 0.7vw;
+  color: rgb(236, 236, 236);
+  display: flex;
+}
+.header__user i {
+  transform: scale(1.1, 1.1);
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 .search__input {
   border-radius: 4px 0 0 4px;
   padding: 0.375rem 0.75rem;
+  height: 30px;
   font-size: 1.2rem;
-  animation-name: input--animation;
-  animation-duration: 15s;
-  animation-delay: 3s;
 
   width: 80%;
-  border: 0.5px solid black;
+  border: 0.5px solid rgb(0, 0, 0);
   border-right: none;
+  transition: border 0.15s;
 }
 
 .search__btn {
   background-color: rgb(0, 125, 255);
-  border: 0.5px solid black;
+  border: 0.5px solid rgb(0, 0, 0);
   border-left: none;
   width: 20%;
+  height: 30px;
+  transition: border 0.15s;
+
   border-radius: 0 4px 4px 0;
+}
+.search__input:hover + button {
+  border: 1px solid rgb(0, 125, 255);
+  border-left: none;
+}
+.search__input:hover {
+  border: 1px solid rgb(0, 125, 255);
+  border-right: none;
 }
 
 .fa-search {
   color: white;
 }
-/*-------------- MAIN---------*/
+
+/*-------------- MAIN---------------------
+//////////////////////////////////////////
+/////////////////////////////////////////*/
+
 main {
   display: flex;
   height: 100%;
+  align-items: stretch;
 }
 
 aside {
   background-color: rgb(33, 37, 41);
   width: 20%;
   height: 100%;
-  padding: 1.2rem 0.7rem;
+  padding: 1.2rem 1.2rem;
   position: relative;
 }
-nav ul {
+.nav__ul {
   margin: 0;
   padding: 0;
   color: rgb(101, 104, 107);
@@ -98,13 +122,18 @@ nav ul li {
   list-style-type: none;
   padding: 1rem 0;
 }
+.nav__ul__li--opened a {
+  color: rgba(255, 255, 255, 0.9);
+  -webkit-text-fill-color: unset;
+  cursor: text;
+}
 nav ul li a {
   text-decoration: none;
   color: rgb(101, 104, 107);
   background-image: linear-gradient(
     to right,
-    #54b3d6,
-    #54b3d6 50%,
+    rgb(84, 179, 214),
+    rgb(84, 179, 214) 50%,
     rgb(101, 104, 107) 50%
   );
   background-size: 200% 100%;
@@ -115,7 +144,7 @@ nav ul li a {
 }
 nav ul li a:before {
   content: "";
-  background: #54b3d6;
+  background: rgb(84, 179, 214);
   display: block;
   position: absolute;
   bottom: -3px;
@@ -137,31 +166,44 @@ i {
   margin: 0.5rem 0;
 }
 
-.nav__ul__li--opened {
-  color: rgba(255, 255, 255, 0.9);
-}
-
 .nav__ul__li--arrow::after {
   content: ">";
   font-weight: bold;
   position: absolute;
   right: 2vw;
+  transition: color, 1s;
+}
+
+.nav__ul__li--arrow:hover {
+  color: rgb(84, 179, 214);
 }
 
 section.content {
   width: 80%;
+  height: 100%;
 }
 .section__title {
   margin: 0 auto;
   width: 97%;
 }
 
+.section__title h1 {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
 .main__breadcrumb {
   background-color: rgb(233, 236, 239);
+  color: rgb(121, 121, 121);
+  font-size: 1.2rem;
   border-radius: 0.25rem;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   width: 97%;
-  margin: 0 auto;
+  margin: 2vh auto 4vh auto;
+}
+
+.main__breadcrumb--narrow {
+  margin: 1vh 0;
 }
 
 .main__cards {
@@ -170,19 +212,27 @@ section.content {
   justify-content: center;
   column-gap: 1vw;
   width: 97%;
-  height: 150px;
   color: white;
   border-radius: inherit;
+}
+
+.main__card {
+  border-radius: 0.25rem;
+  transition: transform 0.3s;
+}
+
+.main__card:hover {
+  transform: translateY(-5px);
 }
 
 .main__card--blue {
   background-color: rgb(0, 123, 255);
   width: 25%;
-  border-radius: unset;
 }
 
 .main__card--yellow {
   background-color: rgb(255, 193, 7);
+
   width: 25%;
 }
 
@@ -198,36 +248,73 @@ section.content {
 .card__top {
   border-radius: 0.25rem 0.25rem 0 0;
   height: 60%;
+  padding: 2rem 1rem 1rem 1.5rem;
+  transition: background-color 0.3s;
 }
 
 .card__bottom {
   border-radius: 0 0 0.25rem 0.25rem;
   height: 40%;
+  padding: 1rem 1rem 1rem 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.419);
+  background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-size: smaller;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.card__bottom::after {
+  content: ">";
+  font-weight: bold;
+  position: absolute;
+  right: 1.5vw;
+}
+.card__bottom:hover,
+.card__top:hover {
+  background-color: rgba(191, 191, 191, 0.2);
 }
 
 /* //////////////////Pseudo classes///////////////////////////// */
-/* Ha megkapja a fókuszt, akkor a szegély színe 128,189,255 legyen. */
+.search__input:focus + button {
+  border-color: rgb(0, 123, 255);
+}
 .search__input:focus {
   border-color: rgb(128, 189, 255);
 }
 .search__input:focus-visible {
   outline: none;
 }
-nav ul li a:hover {
-}
-/* ///////////////Animations, transitions////////////////////////////// */
-/* A szegély színére állíts be egy áttűnést, amely .15 másodpercig tart. -- INPUT
-Állíts be áttűnést a háttérszínre az összes alsó és felső div esetén .3 másodperc időtartamban.--CARD
- */
-@keyframes input--animation {
-  0% {
-    border-color: black;
+/* ///////////////MEDIA QUERIES////////////////////////////// */
+@media only screen and (max-width: 976px) {
+  .main__cards {
+    display: flex;
+    justify-content: center;
+    column-gap: 1vw;
+    row-gap: 1vw;
+    width: 97%;
+    color: white;
+    flex-wrap: wrap;
+    border-radius: inherit;
   }
-  50% {
-    border-color: rgb(128, 189, 255);
+  .main__card--blue {
+    background-color: rgb(0, 123, 255);
+    flex-basis: 49.2%;
   }
-  100% {
-    border-color: black;
+
+  .main__card--yellow {
+    background-color: rgb(255, 193, 7);
+
+    flex-basis: 49.2%;
+  }
+
+  .main__card--green {
+    background-color: rgb(40, 167, 69);
+    flex-basis: 49.2%;
+  }
+
+  .main__card--red {
+    background-color: rgb(220, 53, 69);
+    flex-basis: 49.2%;
   }
 }
 
@@ -246,11 +333,12 @@ nav ul li a:hover {
   }
   .main__cards {
     flex-direction: column;
+
     gap: 10px;
     margin-top: 1rem;
   }
   .main__card {
-    width: 70%;
+    width: 100%;
   }
   nav ul li {
     text-align: center;
